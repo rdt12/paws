@@ -9,5 +9,6 @@ RUN yum -y install emacs-nox perl perl-Getopt-Long bind-utils openssl nmap-ncat 
 		   && yum clean all && rm -rf /var/cache/yum
 RUN cpanm Net::Amazon::Signature::V4 List::Util && cpanm Paws Paws::Credential::File && cpanm Paws \
     && rm -rf /root/.cpanm
+RUN yum -y install curl && yum clean all && rm -rf /var/cache/yum
 RUN cd /usr/local/src && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && ./aws/install && rm -rf awscliv2.zip aws
